@@ -6,7 +6,7 @@ const volleyball = require('volleyball');
 const bodyParser = require('body-parser');
 const db = require('../db')
 
-const PORT = 1337;
+const PORT = 8080;
 const app = express();
 
 //logging middleware
