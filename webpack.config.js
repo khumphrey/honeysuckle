@@ -1,12 +1,14 @@
-'use strict';
-
 const { resolve } = require('path')
 
 module.exports = {
-  entry: './app/main.jsx',
+  mode: isDev ? 'development' : 'production',
+  entry: [
+    '@babel/polyfill', // enables async-await
+    './client/index.js'
+  ],
   output: {
     path: __dirname,
-    filename: './public/bundle.js'
+    filename: './build/bundle.js'
   },
   context: __dirname,
   devtool: 'source-map',
@@ -14,15 +16,12 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /jsx?$/,
-        include: resolve(__dirname, './app'),
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015']
-        }
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
       }
     ]
   }
-};
+}
