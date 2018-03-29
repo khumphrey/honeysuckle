@@ -30,11 +30,11 @@ module.exports = {
       { enforce: "pre", test: /\.jsx?$/, loader: "source-map-loader" }
     ]
   },
-  externals: {
-    "react": "React",
-    "react-dom": "ReactDOM",
-    "react-router-dom": "ReactRouterDOM",
-    "react-redux": "ReactRedux",
-    "redux": "Redux"
-  },
+  // externals: {
+  //   "react": "React",
+  //   "react-dom": "ReactDOM",
+  //   "react-router-dom": "ReactRouterDOM",
+  //   "react-redux": "ReactRedux",
+  //   "redux": "Redux"
+  // },
 }

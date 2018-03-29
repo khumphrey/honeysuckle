@@ -9,7 +9,11 @@ const GET_IMAGES = 'GET_IMAGES'
 /**
  * INITIAL STATE
  */
-const defaultImages = []
+const defaultImages = [ 
+      {src: '/brightsun.jpg'},
+      {src: '/city.jpg'},
+      {src: '/montains.jpg'},
+      {src: '/underwater.jpg'}]
 
 /**
  * ACTION CREATORS
@@ -19,16 +23,16 @@ const getImages = images => ({type: GET_IMAGES, images})
 /**
  * THUNK CREATORS
  */
-export const fetchImages = () =>
-  dispatch =>
-    Promise.all([
-      axios.get('/public/brightsun.jpg')
-      axios.get('/public/city.jpg')
-      axios.get('/public/montains.jpg')
-      axios.get('/public/underwater.jpg')
-      ])
-      .then(res => dispatch(getImages(res.data)))
-      .catch(err => console.log(err))
+// export const fetchImages = () =>
+//   dispatch =>
+//     Promise.all([
+//       axios.get('/brightsun.jpg'),
+//       axios.get('/city.jpg'),
+//       axios.get('/montains.jpg'),
+//       axios.get('/underwater.jpg')
+//       ])
+//       .then(responses => dispatch(getImages(responses.map(res => res.data))))
+//       .catch(err => console.log(err))
 
 /**
  * REDUCER

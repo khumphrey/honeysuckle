@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import {Login, Signup, UserHome, Home} from './components'
-import {me, fetchImages} from './store'
+import {me} from './store'
 
 interface RoutesProps { isLoggedIn: () => boolean; }
 
@@ -53,7 +53,6 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       dispatch(me())
-      dispatch(fetchImages())
     }
   }
 }
