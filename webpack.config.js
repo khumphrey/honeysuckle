@@ -11,7 +11,7 @@ module.exports = {
     filename: './build/bundle.js'
   },
   context: __dirname,
-  // devtool: 'source-map',
+  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.tsx']
   },
