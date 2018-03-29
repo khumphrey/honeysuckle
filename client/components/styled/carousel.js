@@ -12,9 +12,9 @@ export const Carousel = Styled.div`
 export const CarouselText = Styled.div`
 	font-size: 1.8vw;
 	position: absolute;
-  top: 45vh;
-  color: #fff;
-  text-shadow: 2px 2px #252525;
+  top: 40vh;
+  color: #f0f0f0;
+  text-shadow: 0 2px 0 rgba(25, 25, 25, 0.4);
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.2);
   padding: 1%;
@@ -38,6 +38,6 @@ export const CarouselImage = Styled.img`
   opacity: 1;
   transition: opacity 1s;
   &.hidden{
-  	  opacity: 0;
+	  opacity: 0;
   }
 `;

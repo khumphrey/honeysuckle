@@ -1,13 +1,15 @@
 import Styled from 'styled-components';
 
-export const Arrow = Styled.div`
+export const Arrow = Styled.i`
 	position: absolute;
-	top: 50vh;
-	color: grey;
-	font-size: 2em;
-	transition: color .5s;
+	top: 48vh;
+	font-size: 4em;
+	color: #939393;
+  text-shadow: 1px 0 #494747;
+	transition: all .5s;
 	&:hover {
-		color: black;
+		color: #d3d3d3;
+	  text-shadow: 0 0 0.5em #fff;
 	}
 `;
 
