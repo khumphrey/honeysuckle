@@ -8,6 +8,7 @@
   "main": "index.js",
   "scripts": {
     "build-prod": "webpack --mode=production",
+    "build-client": "webpack",
     "build-client-watch": "webpack --mode=development -w",
     "deploy": "script/deploy",
     "lint": "eslint ./ --ignore-path .gitignore",
