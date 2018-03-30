@@ -24,7 +24,6 @@ class Home extends React.Component {
     else if (isInc) counter = ++counter % totalLength;
     else if (counter) counter--;
     else counter = totalLength - 1; 
-    console.log('should Reset ', counter, totalLength, isInc, shouldReset, i)
     this.setState({counter}, () => console.log('STATE ', this.state))
     if (shouldReset) {
       clearInterval(this.intervalId);
