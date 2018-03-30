@@ -10,7 +10,7 @@ class Home extends React.Component {
     counter: 0
   }
   componentDidMount = () => {
-    // this.intervalId = setInterval(this.incrementCounter, 5000)
+    this.intervalId = setInterval(this.incrementCounter, 5000)
   }
 
   componentWillUnmount = () => {
