@@ -2,7 +2,7 @@
 node_modules/
 
 # Compiled JS
-build
+# build
 
 # NPM errors
 npm-debug.log
