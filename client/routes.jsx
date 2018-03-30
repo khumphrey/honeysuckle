@@ -5,12 +5,10 @@ import PropTypes from 'prop-types'
 import {Home} from './components'
 import {me} from './store'
 
-interface RoutesProps { isLoggedIn: () => boolean; }
-
 /**
  * COMPONENT
  */
-class Routes extends React.Component<RoutesProps, {}> {
+class Routes extends React.Component {
   componentDidMount () {
     this.props.loadInitialData()
   }
