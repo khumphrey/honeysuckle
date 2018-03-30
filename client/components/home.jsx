@@ -1,8 +1,6 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {logout} from '../store'
 import {LeftArrow, RightArrow, CarouselText, Carousel, CarouselImageContainer, CarouselImage, Circle, CircleContainer} from './styled'
 
 class Home extends React.Component {
@@ -66,20 +64,11 @@ class Home extends React.Component {
 /**
  * CONTAINER
  */
-const mapState = ({user, images}) => ({
-  isLoggedIn: !!user.id,
+const mapState = ({images}) => ({
   images
 })
 
 const mapDispatch = dispatch => ({})
 
 export default connect(mapState, mapDispatch)(Home)
-
-/**
- * PROP TYPES
- */
-Home.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired
-}
-
 
