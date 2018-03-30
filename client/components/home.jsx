@@ -15,16 +15,17 @@ class Home extends React.Component {
     clearInterval(this.intervalId);
   }
 
-  incrementCounter = (isInc = true, shouldReset, i) => {
+  incrementCounter = (isInc = true, shouldReset, i = false) => {
 
     let counter = this.state.counter;
     const totalLength = this.props.images.length;
 
-    if (i !== undefined) counter = i;
+    if (i !== false) counter = i;
     else if (isInc) counter = ++counter % totalLength;
     else if (counter) counter--;
     else counter = totalLength - 1; 
-    this.setState({counter})
+    console.log('should Reset ', counter, totalLength, isInc, shouldReset, i)
+    this.setState({counter}, () => console.log('STATE ', this.state))
     if (shouldReset) {
       clearInterval(this.intervalId);
       this.intervalId = setInterval(this.incrementCounter, 5000)
@@ -46,13 +47,13 @@ class Home extends React.Component {
           })
         }
         </CarouselImageContainer>
-        <LeftArrow onClick={this.incrementCounter.bind(this, false, true)} className="fa fa-angle-left"></LeftArrow>
-        <RightArrow onClick={this.incrementCounter.bind(this, true, true)} className="fa fa-angle-right"></RightArrow>
+        <LeftArrow onClick={() => this.incrementCounter(false, true)} className="fa fa-angle-left"></LeftArrow>
+        <RightArrow onClick={() => this.incrementCounter(true, true)} className="fa fa-angle-right"></RightArrow>
         <CircleContainer>
         {
           images.map((image, i) => {
-            const classes = i === this.state.counter ? 'fa fa-circle' : 'fa fa-circle-o';
-            return <Circle key={i} className={classes} onClick={this.incrementCounter.bind(this, false, true, i)}></Circle>
+            const classes = i === this.state.counter ? 'fa active' : 'fa';
+            return <Circle key={i} className={classes} onClick={() => this.incrementCounter(false, true, i)}></Circle>
           })
         }
         </CircleContainer>

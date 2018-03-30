@@ -16,11 +16,10 @@ export const Circle = Styled.i`
 		color: #d3d3d3;
 	  text-shadow: 0 0 0.5em #fff;
 	}
-	&.active::before {
-		content: "\f111";
-	}
 	&::before {
 		content: "\f10c";
-		transition: content 1s;
+	}
+	&.active::before {
+		content: "\f111"
 	}
 `;
