@@ -6,7 +6,7 @@ import About from './about'
 const Home = () => (
   <div>
     <Carousel></Carousel>
-    {/*<About></About>*/}
+    <About></About>
   </div>
 )
 

@@ -2,26 +2,25 @@ import Styled from 'styled-components';
 
 export const Carousel = Styled.section`
   position: relative;
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
-  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 export const CarouselImageContainer = Styled.div`
-  display: block;
-  position: absolute;
-  min-width: 100vw;
-  height: 100vh;
-  margin: auto;
-`;
+
+`
 
 export const CarouselImage = Styled.img`
   position: absolute;
   top: 0px;
   left: 0px;
   height: 100vh;
+  min-width: 100vw;
+  transform: ${props => props.transform};
   opacity: 1;
   transition: opacity 1s;
   &.hidden{
@@ -31,7 +30,6 @@ export const CarouselImage = Styled.img`
 
 export const CarouselCenterContainer = Styled.div`
   position: absolute;
-  top: 50vh;
   width: 100vw;
   display:flex;
   justify-content: space-between;
@@ -40,7 +38,6 @@ export const CarouselCenterContainer = Styled.div`
 `;
 
 export const CarouselText = Styled.div`
-	font-size: 1.8vw;
   color: #f0f0f0;
   text-shadow: 0 2px 0 rgba(25, 25, 25, 0.4);
   z-index: 1;
@@ -49,6 +46,10 @@ export const CarouselText = Styled.div`
   margin: 1%;
   border-radius: 5%/22%;
 `;
+
+export const CarouselTextH1 = Styled.h1`
+  font-size: 3vw;
+`
 
 export const Arrow = Styled.i`
   font-size: 7vmax;
