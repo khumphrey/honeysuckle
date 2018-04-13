@@ -1,18 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Arrow, CarouselText, Carousel, CarouselImageContainer, CarouselImage, Circle, CircleContainer, CarouselCenterContainer} from './styled'
-
+import {Arrow, CarouselText, Carousel, CarouselImageContainer, CarouselImage, Circle, CircleContainer, CarouselCenterContainer, CarouselTextH1} from './styled'
+import {Link} from 'react-router-dom'
 
 class CarouselComponent extends React.Component {
   state = {
-    counter: 0
+    counter: 0,
+    transform: 'translateY(0px)'
   }
   componentDidMount = () => {
     this.intervalId = setInterval(this.incrementCounter, 5000)
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount = () => {
     clearInterval(this.intervalId);
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = (e) => {
+    let itemTranslate = `translateY(${window.scrollY / 3}px)`
+    this.setState({ transform: itemTranslate })
   }
 
   incrementCounter = (isInc = true, shouldReset, i = false) => {
@@ -35,19 +43,17 @@ class CarouselComponent extends React.Component {
   	const {images} = this.props
   	return (
 			<Carousel>
-			  <CarouselImageContainer className="carousel-image-container">
 			  {
 			    images.map((image,i) => {
 			      const classes = i === this.state.counter ? '' : 'hidden';
-			      return <CarouselImage key={i} className={classes} src={image.src} />
+			      return <CarouselImage key={i} className={classes} transform={this.state.transform} src={image.src} />
 			    })
 			  }
-			  </CarouselImageContainer>
 			  <CarouselCenterContainer>
 			    <Arrow onClick={() => this.incrementCounter(false, true)} className="fa fa-angle-left"></Arrow>
 			    <CarouselText>
-			      <h1>Honeysuckle Estates: Country Living</h1>
-			      <h2>Learn More</h2>
+			      <CarouselTextH1>Honeysuckle Estates: Country Living</CarouselTextH1>
+			      <Link to='/about'>Learn More</Link>
 			    </CarouselText>
 			    <Arrow onClick={() => this.incrementCounter(true, true)} className="fa fa-angle-right"></Arrow>
 			  </CarouselCenterContainer>
